@@ -44,9 +44,15 @@ export VKD3D_CONFIG=ps5
 export HSA_OVERRIDE_GFX_VERSION=12.0.1
 EOF
 
-# --- 7. Установка ONNX Runtime ROCm ---
-echo "[INFO] Installing onnxruntime-rocm..."
-python3 -m pip install --upgrade --user onnxruntime-rocm
+# --- 7. Установка ONNX Runtime ROCm в виртуальном окружении ---
+echo "[INFO] Creating Python venv for ROCm AI..."
+python3 -m venv ~/rocm-venv
+source ~/rocm-venv/bin/activate
+pip install --upgrade pip
+pip install onnxruntime-rocm
+deactivate
+echo "[INFO] ONNX Runtime installed in ~/rocm-venv"
+
 
 # --- 8. Оптимизация ядра для AI/ML ---
 echo "[INFO] Setting sysctl parameters..."
