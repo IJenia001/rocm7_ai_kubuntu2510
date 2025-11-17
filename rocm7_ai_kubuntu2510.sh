@@ -37,22 +37,18 @@ EOF'
 # --- 6. Переменные окружения FSR4 ML ---
 echo "[INFO] Adding FSR4 ML environment variables..."
 cat >> ~/.bashrc <<EOF
-
 # AMD FSR4 ML settings
 export AMD_FSR4_FORCE_ML=1
 export VKD3D_CONFIG=ps5
 export HSA_OVERRIDE_GFX_VERSION=12.0.1
 EOF
 
-# --- 7. Установка ONNX Runtime ROCm в виртуальном окружении ---
-echo "[INFO] Creating Python venv for ROCm AI..."
-python3 -m venv ~/rocm-venv
-source ~/rocm-venv/bin/activate
-pip install --upgrade pip
-pip install onnxruntime-rocm
-deactivate
-echo "[INFO] ONNX Runtime installed in ~/rocm-venv"
-
+# --- 7. Установка ONNX Runtime ROCm ---
+echo "[INFO] Installing onnxruntime-rocm..."
+python3 -m venv ~/.venv
+. ~/.venv/bin/activate # Активация виртуального окружения
+pip install --upgrade onnxruntime-rocm  # Удален флаг --user
+deactivate # Деактивация окружения после установки (необязательно, но рекомендуется)
 
 # --- 8. Оптимизация ядра для AI/ML ---
 echo "[INFO] Setting sysctl parameters..."
@@ -93,3 +89,9 @@ echo "  python3 - <<EOF
 import onnxruntime as ort
 print(ort.get_device())
 EOF"
+
+echo ">>> **IMPORTANT REMINDERS:** <<<"
+echo "- Run this script with sudo privileges."
+echo "- Reboot your system after running the script."
+echo "- Ensure /opt/rocm/bin is in your PATH environment variable."
+echo "- Refer to the official ROCm documentation for advanced configuration and troubleshooting: https://rocm.docs.amd.com/"
