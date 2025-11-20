@@ -11,8 +11,8 @@ sudo apt install -y wget curl python3 python3-pip python3-venv python3-setuptool
 # --- 2. Скачиваем актуальный amdgpu-install 7.0.70000 ---
 echo "[INFO] Downloading amdgpu-install 7.0.70000..."
 cd /tmp
-wget https://repo.radeon.com/amdgpu-install/7.0/ubuntu/noble/amdgpu-install_7.0.70000-1_all.deb
-sudo apt install -y ./amdgpu-install_7.0.70000-1_all.deb
+wget https://repo.radeon.com/amdgpu-install/7.1/ubuntu/noble/amdgpu-install_7.1.70100-1_all.deb
+sudo apt install -y ./amdgpu-install_7.1.70100-1_all.deb
 
 # --- 3. Обновляем apt и устанавливаем ROCm ---
 echo "[INFO] Updating apt and installing ROCm..."
