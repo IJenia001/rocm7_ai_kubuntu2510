@@ -13,7 +13,7 @@ rm -f /etc/apt/sources.list.d/rocm*.list || true
 rm -f /etc/apt/sources.list.d/amdgpu*.list || true
 
 CODENAME="noble"
-ROCM_VER="7.1.1"
+ROCM_VER="7.2"
 KEYRING="/usr/share/keyrings/rocm.gpg"
 LIST="/etc/apt/sources.list.d/rocm.list"
 
