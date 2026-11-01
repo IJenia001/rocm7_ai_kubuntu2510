@@ -4,4 +4,4 @@ Activate AI ROCm latest version in Kubuntu 25.10
 Activate AI ROCm latest version in Kubuntu 26.04
 
 
-sudo bash rocm_7.2.1_install_for_kubuntu_26,04.sh
+sudo bash rocm_latest 10+_install_for_kubuntu_26,04.sh
